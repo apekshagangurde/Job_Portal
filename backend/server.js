@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
-const helmet = require('helmet'); // Don't forget to include helmet
+const helmet = require('helmet');
 const { exec } = require('child_process');
 const http = require('http');
 const socketIo = require('socket.io');
@@ -10,17 +10,17 @@ const socketIo = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
-const PORT = process.env.PORT || 5000; // Use environment variable or default to 5000
+const PORT = process.env.PORT || 5000;
 
 // Use Helmet for security, including CSP
 app.use(helmet.contentSecurityPolicy({
     directives: {
-        defaultSrc: ["'self'"],  // Allow loading from the same origin
-        fontSrc: ["'self'", "data:", "https://job-portal-express.onrender.com"], // Allow fonts from self and data URLs
-        scriptSrc: ["'self'", "https://example.com"], // Adjust your script sources as needed
-        styleSrc: ["'self'", "https://example.com"], // Adjust your style sources as needed
-        imgSrc: ["'self'", "data:", "https://job-portal-express.onrender.com"], // Allow images from self and data URLs
-        connectSrc: ["'self'", "https://example.com"], // Adjust for WebSocket connections if needed
+        defaultSrc: ["'self'"],
+        fontSrc: ["'self'", "data:", "https://job-portal-express.onrender.com"],
+        scriptSrc: ["'self'", "https://example.com"],
+        styleSrc: ["'self'", "https://example.com"],
+        imgSrc: ["'self'", "data:", "https://job-portal-express.onrender.com"],
+        connectSrc: ["'self'", "https://example.com"],
     }
 }));
 
@@ -30,8 +30,8 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from the frontend build directory
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -77,7 +77,7 @@ function scrapeDataAndEmit() {
             }
             try {
                 const jobs = JSON.parse(data);
-                io.emit('new_jobs', jobs);  // Emit latest jobs to all clients
+                io.emit('new_jobs', jobs); // Emit latest jobs to all clients
             } catch (parseErr) {
                 console.error('Error parsing scraped jobs JSON:', parseErr);
             }
@@ -85,12 +85,12 @@ function scrapeDataAndEmit() {
     });
 }
 
-// Run scraper every 10 sec
+// Run scraper every 10 minutes
 setInterval(scrapeDataAndEmit, 10 * 60 * 1000);
 
-// Serve the main HTML file
+// Serve the main HTML file (index.html)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html')); // Serve your main HTML file
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html')); // Serve your main HTML file
 });
 
 // Start the server
