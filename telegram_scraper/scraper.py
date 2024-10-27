@@ -8,7 +8,7 @@ api_hash = 'f574aa5354627fcef0050b18983b9fee'  # Replace with your actual API Ha
 phone_number = '9322915597'  # Replace with your phone number
 
 # List of channels to scrape
-channel_usernames = ['jobs_and_internships_updates', 'goyalarsh']  # Add more channels as needed
+channel_usernames = [ 'apekshagangurde','jobs_and_internships_updates', 'goyalarsh',]  # Add mychannel here
 
 # Keywords to identify job-related messages
 job_keywords = ["Role:", "Company", "Batch", "Location", "Company name"]
@@ -46,6 +46,10 @@ async def main():
 
         while True:  # Infinite loop for continuous running
             jobs = await fetch_jobs(client)
+
+            # Keep only the latest 50 entries
+            if len(jobs) > 50:
+                jobs = jobs[-50:]  # Keep only the last 50 jobs
 
             # Save the jobs to a JSON file
             with open('scraped_jobs.json', 'w') as f:
