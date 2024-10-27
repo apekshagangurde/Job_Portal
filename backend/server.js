@@ -17,15 +17,16 @@ app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ["'self'"],
         fontSrc: ["'self'", "data:", "https://job-portal-r88a.onrender.com/"],
-        scriptSrc: ["'self'", "https://example.com"],
-        styleSrc: ["'self'", "https://example.com"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://example.com"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://example.com"],
         imgSrc: ["'self'", "data:", "https://job-portal-r88a.onrender.com/"],
-        connectSrc: ["'self'", "https://example.com"],
+        connectSrc: ["'self'", "http://localhost:5000", "https://example.com"],
     }
 }));
 
+// CORS configuration
 app.use(cors({
-    origin: '*',
+    origin: 'http://localhost:3000', // Update this for production
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
@@ -42,14 +43,14 @@ app.get('/jobs', (req, res) => {
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading file:', err);
-            return res.status(500).json({ error: 'Failed to fetch jobs' });
+            return res.status(500).json({ error: 'Internal Server Error. Please try again later.' });
         }
         try {
             const jobs = JSON.parse(data);
             res.json(jobs);
         } catch (parseErr) {
             console.error('Error parsing JSON:', parseErr);
-            res.status(500).json({ error: 'Failed to parse jobs data' });
+            res.status(500).json({ error: 'Failed to parse jobs data.' });
         }
     });
 });
@@ -64,8 +65,9 @@ io.on('connection', (socket) => {
 
 // Function to scrape data periodically and emit updates
 function scrapeDataAndEmit() {
+    console.log('Scraping data...');
     const scraperPath = path.join(__dirname, '../telegram_scraper/scraper.py'); // Adjust path
-    exec(`python ${scraperPath}`, (error, stdout, stderr) => {
+    exec(`python ${scraperPath}`, (error) => {
         if (error) {
             console.error(`Error running scraper.py: ${error.message}`);
             return;
@@ -91,8 +93,9 @@ setInterval(scrapeDataAndEmit, 10 * 60 * 1000);
 
 // Endpoint to manually trigger scraping
 app.get('/scrape', (req, res) => {
+    console.log('Manual scraping triggered');
     const scraperPath = path.join(__dirname, '../telegram_scraper/scraper.py'); // Adjust path
-    exec(`python ${scraperPath}`, (error, stdout, stderr) => {
+    exec(`python ${scraperPath}`, (error) => {
         if (error) {
             console.error(`exec error: ${error}`);
             return res.status(500).send('Scraping failed');
@@ -117,7 +120,7 @@ app.get('/scrape', (req, res) => {
 });
 
 // Serve the main HTML file (index.html)
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/build/index.html')); // Serve your main HTML file
 });
 
