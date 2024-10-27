@@ -64,7 +64,8 @@ io.on('connection', (socket) => {
 
 // Function to scrape data periodically and emit updates
 function scrapeDataAndEmit() {
-    exec('python ../telegram_scraper/scraper.py', (error) => {
+    const scraperPath = path.join(__dirname, '../telegram_scraper/scraper.py'); // Adjust path
+    exec(`python ${scraperPath}`, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error running scraper.py: ${error.message}`);
             return;
@@ -90,7 +91,8 @@ setInterval(scrapeDataAndEmit, 10 * 60 * 1000);
 
 // Endpoint to manually trigger scraping
 app.get('/scrape', (req, res) => {
-    exec('python ../telegram_scraper/scraper.py', (error, stdout, stderr) => {
+    const scraperPath = path.join(__dirname, '../telegram_scraper/scraper.py'); // Adjust path
+    exec(`python ${scraperPath}`, (error, stdout, stderr) => {
         if (error) {
             console.error(`exec error: ${error}`);
             return res.status(500).send('Scraping failed');
