@@ -3,55 +3,90 @@
 html, body {
   height: 100%;
   margin: 0; /* Remove default margin */
+  font-family: 'Arial', sans-serif; /* Set a default font */
+  background-color: #f4f4f4; /* Light background for contrast */
 }
 
 .App {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 100vw;
   padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
+
+.job-listings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
 h1 {
   text-align: center;
   color: #333;
+  margin-bottom: 20px; /* Added space below the heading */
+  font-size: 2rem; /* Increased heading size */
 }
 
 .job-card {
+  flex: 1 1 calc(33.333% - 20px); /* 3 per row with gap */
+  background-color: #ffffff; /* White background for job cards */
+  padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 15px 0;
-  padding: 15px;
-  transition: 0.3s;
+  border-radius: 10px; /* More rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
 }
 
 .job-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05); /* Slightly larger scale on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* More pronounced shadow on hover */
 }
 
 .job-title {
-  font-size: 1.5em;
-  color: #007BFF; /* Primary color */
+  font-size: 1.5rem; /* Larger job title */
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333; /* Darker title color */
+}
+
+/* Job details styling */
+.job-details {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+  color: #555; /* Slightly darker text color */
 }
 
 .job-description {
-  color: #555;
+  color: #777; /* Lighter color for descriptions */
 }
 
+/* Apply button styling */
 .apply-button {
-  background-color: #28a745; /* Green */
+  background-color: #007bff; /* Bright blue */
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 12px 18px; /* Increased padding for better touch target */
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  text-align: center; /* Ensure text is centered */
+  transition: background-color 0.3s; /* Smooth background transition */
 }
 
 .apply-button:hover {
-  background-color: #218838; /* Darker green */
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
 /* Additional color styles for different jobs */
@@ -70,3 +105,36 @@ h1 {
   border-left: 5px solid #ff9800; /* Orange */
 }
 
+/* Search bar styling */
+.search-bar {
+  width: 100%;
+  max-width: 400px; /* Limit the width of the search bar */
+  padding: 12px; /* Increased padding for comfort */
+  margin: 20px auto; /* Center the search bar */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s; /* Smooth border color change */
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #007bff; /* Change border color on focus */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .job-card {
+    flex: 1 1 calc(50% - 20px); /* 2 per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .job-card {
+    flex: 1 1 100%; /* 1 per row on very small screens */
+  }
+  
+  h1 {
+    font-size: 1.5rem; /* Adjust heading size for smaller screens */
+  }
+}
