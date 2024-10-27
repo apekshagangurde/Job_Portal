@@ -88,6 +88,32 @@ function scrapeDataAndEmit() {
 // Run scraper every 10 minutes
 setInterval(scrapeDataAndEmit, 10 * 60 * 1000);
 
+// Endpoint to manually trigger scraping
+app.get('/scrape', (req, res) => {
+    exec('python ../telegram_scraper/scraper.py', (error, stdout, stderr) => {
+        if (error) {
+            console.error(`exec error: ${error}`);
+            return res.status(500).send('Scraping failed');
+        }
+        // After scraping, read the jobs and emit them
+        const filePath = path.join(__dirname, '../telegram_scraper/scraped_jobs.json');
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            if (err) {
+                console.error('Error reading scraped jobs file:', err);
+                return res.status(500).send('Failed to read jobs');
+            }
+            try {
+                const jobs = JSON.parse(data);
+                io.emit('new_jobs', jobs); // Emit latest jobs to all clients
+                res.json(jobs); // Send the scraped jobs as response
+            } catch (parseErr) {
+                console.error('Error parsing scraped jobs JSON:', parseErr);
+                res.status(500).send('Failed to parse jobs data');
+            }
+        });
+    });
+});
+
 // Serve the main HTML file (index.html)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/build/index.html')); // Serve your main HTML file
