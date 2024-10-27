@@ -16,10 +16,10 @@ const PORT = process.env.PORT || 5000;
 app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ["'self'"],
-        fontSrc: ["'self'", "data:", "https://job-portal-express.onrender.com"],
+        fontSrc: ["'self'", "data:", "https://job-portal-r88a.onrender.com/"],
         scriptSrc: ["'self'", "https://example.com"],
         styleSrc: ["'self'", "https://example.com"],
-        imgSrc: ["'self'", "data:", "https://job-portal-express.onrender.com"],
+        imgSrc: ["'self'", "data:", "https://job-portal-r88a.onrender.com/"],
         connectSrc: ["'self'", "https://example.com"],
     }
 }));
