@@ -25,7 +25,10 @@ app.use(helmet.contentSecurityPolicy({
 }));
 
 // CORS configuration
-const allowedOrigins = ['https://job-portal-r88a.onrender.com'];
+const allowedOrigins = [
+    'https://job-portal-r88a.onrender.com',
+    'http://localhost:3000' // Add this for local development
+];
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin) return callback(null, true);
