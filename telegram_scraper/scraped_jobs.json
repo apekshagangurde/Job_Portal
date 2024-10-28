@@ -1,19 +1,15 @@
 [
     {
-        "title": "[",
-        "description": "[\n    {\n        \"title\": \"Test Job Post\",\n        \"description\": \"Role: Software Engineer, Company: ABC Corp, Location: Remote, Batch: 2024\"\n    },\n    ...\n]"
+        "title": "Company Name: Ciscotry",
+        "description": "Company Name: Ciscotry\nRole: Software \nBatch Eligible: 2024 passouts \nLocation: Bangalore, pune,mumbaiIndia\nExpected CTC: Around 24 LPA"
     },
     {
-        "title": "[",
-        "description": "[\n    {\n        \"title\": \"Test Job Post\",\n        \"description\": \"Role: Software Engineer, Company: ABC Corp, Location: Remote, Batch: 2024\"\n    },\n    ...\n]"
+        "title": "Role: Software Engineer Intern",
+        "description": "Role: Software Engineer Intern\nCompany: ABC Technologies\nBatch: 1999\nLocation: mumbai, India\nCompany name: ABC Technologies Pvt Ltd\nDescription: We are hiring passionate individuals for a 6-month internship program starting in January 2024."
     },
     {
-        "title": "[",
-        "description": "[\n    {\n        \"title\": \"Test Job Post\",\n        \"description\": \"Role: Software Engineer, Company: ABC Corp, Location: Remote, Batch: 2024\"\n    },\n    ...\n]"
-    },
-    {
-        "title": "[",
-        "description": "[\n    {\n        \"title\": \"Test Job Post\",\n        \"description\": \"Role: Software Engineer, Company: ABC Corp, Location: Remote, Batch: 2024\"\n    },\n    ...\n]"
+        "title": "Role: Software Engineer Intern",
+        "description": "Role: Software Engineer Intern\nCompany: ABC Technologies\nBatch: 2024\nLocation: Pune, India\nCompany name: ABC Technologies Pvt Ltd\nDescription: We are hiring passionate individuals for a 6-month internship program starting in January 2024."
     },
     {
         "title": "Test Job Post: Role: Software Engineer, Company: ABC Corp, Location: Remote, Batch: 2024",
@@ -28,8 +24,8 @@
         "description": "Company Name : Meesho\nBatch : 2024 passouts\nRole : Associate product Manager\n\nLink : https://docs.google.com/forms/d/e/1FAIpQLSfUR_Li7CB6ZuCOHiMdfWOxLBK21RXQiFWbleJ8Isg6QJm05g/viewform"
     },
     {
-        "title": "AI Intern Computer Vision Hiring",
-        "description": "AI Intern Computer Vision Hiring\n\nLocation: Hyderabad\n\nInternship + PPO"
+        "title": "Company Name: Cisco",
+        "description": "Company Name: Cisco\nRole: Software Engineer\nBatch Eligible: 2024 passouts only\nLocation: Bangalore, India\nExpected CTC: Around 24 LPA\n\nApply Link: https://jobs.cisco.com/jobs/ProjectDetail/Software-Engineer-Test-Full-Time-India-Engineering-UHR/1403775"
     },
     {
         "title": "Work From Home Internships for college students",
@@ -108,16 +104,12 @@
         "description": "Company name: Atlan \nRole: Software Engineering Intern\nBatch Eligible: 2025 passouts\nExpected Stipend: INR 40K per month or more\nLocation: Delhi, India (Remote) \n\nApply Link: https://bit.ly/47S5QLu \n\nDo share with your Juniors too \n\nDo like the post for LinkedIn Algorithm \ud83d\ude0a and provide your support for more such updates \ud83d\ude07"
     },
     {
-        "title": "Company name: Uber ",
-        "description": "Company name: Uber \nRole: Software Engineering Intern\nBatch Eligible: 2025 passouts\nExpected Stipend: INR 1.6 Lacs per month\nLocation: Bangalore, India \n\nApply Link: https://bit.ly/4gR85Ti \n\nDo share with your Juniors too \n\nDo like the post for LinkedIn Algorithm \ud83d\ude0a and provide your support for more such updates \ud83d\ude07"
+        "title": "Company Name : Amazon",
+        "description": "Company Name : Amazon\nRole : SDE-1\nBatch : 2023/2022 passouts\n\nLink : https://www.amazon.jobs/en/jobs/2815485/software-development-engineer-i-in-payments-use-cases-tech"
     },
     {
-        "title": "Company name: HackerRank",
-        "description": "Company name: HackerRank\nRole: SDE Intern\nBatch Eligible: 2025 passouts \nLocation: Bengaluru, India\n\nCommunity for Latest Jobs & Internships Updates\nhttps://linktr.ee/jobs_and_internships_updates\nShare with your College Whatsapp Groups & Friends too \n\nApply Link: https://boards.greenhouse.io/hackerrank/jobs/6241442?gh_jid=6241442&gh_src=KrishanKumarLinkedin\n\nDo share with your Friends too\n\nPerks: There is\u00a0insurance, coverage of two-way travel, various reimbursements and so much more!"
-    },
-    {
-        "title": "Company name: CloudSEK",
-        "description": "Company name: CloudSEK\nRole: Backend Intern\nBatch Eligible: 2025 passouts \nLocation: Bengaluru, India\n\nCommunity for Latest Jobs & Internships Updates\nhttps://linktr.ee/jobs_and_internships_updates\nShare with your College Whatsapp Groups & Friends too \n\nApply Link: https://www.linkedin.com/jobs/view/4040104447\n\nDo share with your Juniors too"
+        "title": "Company Name : Amazon",
+        "description": "Company Name : Amazon\nBatch : 2026/25 passouts\nSDE Internship \n\nLink : https://www.amazon.jobs/en/jobs/2750545/sde-i-intern-6m-july-dec"
     },
     {
         "title": "Company Name : Hella ",
@@ -182,9 +174,5 @@
     {
         "title": "Company Name : Tata 1mg",
         "description": "Company Name : Tata 1mg\nRole : SDE 1\nBatch : 2023/2022/2021 passouts\n\nLink : https://1mg.darwinbox.in/ms/candidate/careers/a66fa3db752e44"
-    },
-    {
-        "title": "Company Name : Even Healthcare",
-        "description": "Company Name : Even Healthcare\n\nBatch : 2025 passouts\nRole : SDE Interns - 6 months\n\nLink : https://careers.even.in/open-roles/backend-engineering-intern"
     }
 ]

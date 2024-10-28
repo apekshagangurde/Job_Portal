@@ -12,7 +12,7 @@ const JobList = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get('https://job-portal-r88a.onrender.com/jobs');
+        const response = await axios.get(' http://localhost:3000/jobs');
         if (Array.isArray(response.data)) {
           setJobs(response.data);
         } else {
