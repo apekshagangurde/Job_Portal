@@ -46,7 +46,7 @@ const JobList = () => {
   }
 
   return (
-    <div className="job-listings">
+    <div className="job-listings" style={{ marginTop: '100px' }}>
       {error && <p className="error-message">{error}</p>}
       {jobs.length > 0 ? (
         jobs.map((job) => {

@@ -1,32 +1,82 @@
 /* Header.css */
-
 .header {
-    background-color: #007bff; /* Blue background */
-    padding: 20px; /* Padding around the header */
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space out the items */
-    align-items: center; /* Center items vertically */
-    color: white; /* Text color */
+  width: 100%;                /* Make header take full width */
+  background: linear-gradient(135deg, #6a82fb, #fc5c7d); /* Soft gradient background */
+  color: white;              /* White text color */
+  padding: 10px 10px;        /* Reduced padding for height reduction */
+  text-align: center;        /* Center align text */
+  position: fixed;           /* Fix position to the top */
+  top: 0;                    /* Align to the top */
+  left: 0;                   /* Align to the left */
+  z-index: 100;             /* Ensure it stays above other content */
+  margin-bottom: 20px;       /* Space below header */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  transition: background 0.3s ease; /* Smooth background transition */
+}
+
+/* Change background on hover */
+.header:hover {
+  /* Lighter gradient on hover */
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: white; /* White color for text */
+  animation: fadeIn 1s ease forwards; /* Fade-in for logo */
+}
+
+.website-title {
+  margin-left: 10px; /* Space between icon and text */
+  font-size: 1.8rem; /* Reduced font size for title */
+  animation: slideIn 0.5s ease forwards; /* Animation for title */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+/* Add hover effect on website title */
+.website-title:hover {
+  color: #FFD700; /* Change to gold on hover */
+}
+
+/* Tagline Styles */
+.tagline {
+  font-size: 1rem; /* Reduced tagline size */
+  margin-top: 5px; /* Space above tagline */
+  animation: fadeInUp 1s ease forwards; /* Fade-in and slide up animation */
+  opacity: 0; /* Start invisible */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for depth */
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
   }
-  
-  .header-title {
-    font-size: 1.8rem; /* Title font size */
-    margin: 0; /* Remove default margin */
+  to {
+      opacity: 1;
   }
-  
-  .header-nav {
-    display: flex; /* Use flexbox for navigation */
-    gap: 20px; /* Space between links */
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(-20px); /* Start slightly above */
+      opacity: 0; /* Start invisible */
   }
-  
-  .nav-link {
-    color: white; /* Link color */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Bold font for links */
-    transition: color 0.3s; /* Smooth color transition on hover */
+  to {
+      transform: translateY(0); /* Move to original position */
+      opacity: 1; /* Fully visible */
   }
-  
-  .nav-link:hover {
-    color: #e7f3fe; /* Change color on hover */
+}
+
+/* New Keyframes for tagline animation */
+@keyframes fadeInUp {
+  from {
+      transform: translateY(20px); /* Start slightly below */
+      opacity: 0; /* Start invisible */
   }
-  
+  to {
+      transform: translateY(0); /* Move to original position */
+      opacity: 1; /* Fully visible */
+  }
+}

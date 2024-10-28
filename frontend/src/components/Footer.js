@@ -1,21 +1,24 @@
 // Footer.js
 import React from 'react';
-import './Footer.css'; // Assuming you will create a separate CSS file for styling
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import './Footer.css';
 
-const Footer = () => {
+const Footer = ({ isVisible }) => {
     return (
-        <footer className="footer">
+        <footer className={`footer ${isVisible ? 'visible' : ''}`}>
             <div className="footer-content">
                 <p>Website created by Apeksha Gangurde</p>
                 <div className="social-links">
                     <a href="mailto:your-email@example.com" title="Email">
-                        <img src="path/to/email-icon.png" alt="Email Logo" className="icon" />
+                        <FontAwesomeIcon icon={faEnvelope} className="icon" />
                     </a>
                     <a href="https://www.linkedin.com/in/your-linkedin" title="LinkedIn">
-                        <img src="path/to/linkedin-icon.png" alt="LinkedIn Logo" className="icon" />
+                        <FontAwesomeIcon icon={faLinkedin} className="icon" />
                     </a>
                     <a href="https://github.com/your-github" title="GitHub">
-                        <img src="path/to/github-icon.png" alt="GitHub Logo" className="icon" />
+                        <FontAwesomeIcon icon={faGithub} className="icon" />
                     </a>
                 </div>
             </div>
