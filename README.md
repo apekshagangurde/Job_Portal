@@ -27,5 +27,8 @@ jobportal/
 ├── package.json           # Node.js dependencies
 └── README.md              # Project documentation
 
+video:-https://drive.google.com/file/d/1QduN-5xrz6mnQuD_CFcXYLm4xoCV2mAk/view?usp=sharing
+website link:-https://job-portal-r88a.onrender.com/
+
 
 
