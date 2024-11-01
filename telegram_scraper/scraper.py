@@ -22,7 +22,7 @@ async def fetch_jobs(client):
             channel = await client.get_entity(channel_username)
 
             # Fetch messages from the channel
-            async for message in client.iter_messages(channel, limit=50):
+            async for message in client.iter_messages(channel, limit=60):
                 content = message.message or message.text  # Combine both attributes
 
                 # Filter out only job-related messages
